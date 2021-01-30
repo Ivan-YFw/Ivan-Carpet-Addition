@@ -78,11 +78,6 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 
 	}
 
-	@Override
-	public void registerLoggers() {
-
-	}
-
 	public static Identifier getIdentifier(String id) {
 		return new Identifier(shortName, id);
 	}

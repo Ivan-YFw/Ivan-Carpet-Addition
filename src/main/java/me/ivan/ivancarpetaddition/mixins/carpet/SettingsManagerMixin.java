@@ -9,7 +9,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Slice;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import static carpet.utils.Translations.tr;
 import static me.ivan.ivancarpetaddition.IvanCarpetAdditionServer.version;
 import static me.ivan.ivancarpetaddition.IvanCarpetAdditionServer.fancyName;
 
@@ -36,7 +35,7 @@ public class SettingsManagerMixin {
     private void printAdditionVersion(ServerCommandSource source, CallbackInfoReturnable<Integer> cir) {
         Messenger.m(source,
                 String.format("g %s ", fancyName),
-                String.format("g %s: ", tr("ui.version",  "version")),
+                String.format("g %s: ", "version"),
                 String.format("g %s", version)
         );
     }
