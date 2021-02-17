@@ -2,12 +2,9 @@ package me.ivan.ivancarpetaddition.mixins.rule.bannedMobs;
 
 import com.google.common.collect.Sets;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
-import me.ivan.ivancarpetaddition.translations.TranslatableBase;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.command.SummonCommand;
-import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 import org.spongepowered.asm.mixin.Mixin;

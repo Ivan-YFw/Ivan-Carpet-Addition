@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(CreeperEntity.class)
 public abstract class CreeperEntityMixin extends HostileEntity{
-    @Shadow public abstract boolean shouldRenderOverlay();
+    @Shadow public abstract boolean isCharged();
 
     @Shadow protected abstract void spawnEffectsCloud();
 
@@ -27,9 +27,9 @@ public abstract class CreeperEntityMixin extends HostileEntity{
     private void explode() {
         if (!this.world.isClient()) {
             Explosion.DestructionType destructionType = this.world.getGameRules().getBoolean(GameRules.MOB_GRIEFING) ? IvanCarpetAdditionSettings.creeperDropCompletely ? Explosion.DestructionType.BREAK : Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE;
-            float f = shouldRenderOverlay() ? 2.0F : 1.0F;
+            float f = isCharged() ? 2.0F : 1.0F;
             this.dead = true;
-            this.world.createExplosion(this, this.getX(), this.getY(), this.getZ(), (float)explosionRadius * f, destructionType);
+            this.world.createExplosion(this, this.x, this.y, this.z, (float)explosionRadius * f, destructionType);
             this.remove();
             spawnEffectsCloud();
         }
