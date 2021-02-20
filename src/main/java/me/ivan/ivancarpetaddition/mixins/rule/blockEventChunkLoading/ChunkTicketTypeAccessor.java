@@ -6,6 +6,6 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(ChunkTicketType.class)
 public interface ChunkTicketTypeAccessor {
-    @Accessor
+    @Accessor("field_19348")
     public void setExpiryTicks(long expiryTicks);
 }
