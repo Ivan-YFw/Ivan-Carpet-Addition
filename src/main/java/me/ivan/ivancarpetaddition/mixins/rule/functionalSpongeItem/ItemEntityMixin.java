@@ -32,14 +32,14 @@ public class ItemEntityMixin {
         if (!IvanCarpetAdditionSettings.functionalSpongeItem) return;
         if (itemEntity.getStack().getItem() == Items.SPONGE) {
             if (absorbWater(itemEntity.world, new BlockPos(itemEntity))) {
-                ItemEntity wetSponge = new ItemEntity(itemEntity.world, itemEntity.getX(), itemEntity.getY(), itemEntity.getZ(), new ItemStack(Items.WET_SPONGE, itemEntity.getStack().getCount()));
+                ItemEntity wetSponge = new ItemEntity(itemEntity.world, itemEntity.x, itemEntity.y, itemEntity.z, new ItemStack(Items.WET_SPONGE, itemEntity.getStack().getCount()));
                 wetSponge.setVelocity(itemEntity.getVelocity());
                 itemEntity.world.spawnEntity(wetSponge);
                 itemEntity.remove();
             }
         }
         if (itemEntity.getStack().getItem() == Items.WET_SPONGE && itemEntity.world.getDimension().doesWaterVaporize() && itemEntity.getAge() > 60) {
-            ItemEntity sponge = new ItemEntity(itemEntity.world, itemEntity.getX(), itemEntity.getY(), itemEntity.getZ(), new ItemStack(Items.SPONGE, itemEntity.getStack().getCount()));
+            ItemEntity sponge = new ItemEntity(itemEntity.world, itemEntity.x, itemEntity.y, itemEntity.z, new ItemStack(Items.SPONGE, itemEntity.getStack().getCount()));
             sponge.setVelocity(itemEntity.getVelocity());
             itemEntity.world.spawnEntity(sponge);
             itemEntity.world.playSound(null, new BlockPos(itemEntity), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1.0F, (1.0F + itemEntity.world.getRandom().nextFloat() * 0.2F) * 0.7F);
@@ -77,7 +77,7 @@ public class ItemEntityMixin {
                         if (j < 6) {
                             queue.add(new Pair(blockPos2, j + 1));
                         }
-                    } else if (material == Material.UNDERWATER_PLANT || material == Material.REPLACEABLE_UNDERWATER_PLANT) {
+                    } else if (material == Material.UNDERWATER_PLANT || material == Material.SEAGRASS) {
                         BlockEntity blockEntity = blockState.getBlock().hasBlockEntity() ? world.getBlockEntity(blockPos2) : null;
                         SpongeBlock.dropStacks(blockState, world, blockPos2, blockEntity);
                         world.setBlockState(blockPos2, Blocks.AIR.getDefaultState(), 3);
