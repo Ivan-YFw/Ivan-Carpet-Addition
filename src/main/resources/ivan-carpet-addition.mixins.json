@@ -29,7 +29,7 @@
     "rule.mendableSnowGolem.SnowGolemEntityMixin",
     "rule.mendableSnowGolem.SnowballEntityMixin",
     "rule.spongeDryInNether.WetSpongeBlockMixin",
-    "rule.magmaBlockDamageItem.MagmaBlockMixin",
+    "rule.magmaBlockDamageItem.ItemEntityMixin",
     "rule.functionalSpongeItem.ItemEntityMixin",
     "rule.fakePlayerPrefixCheck.PlayerCommandMixin",
     "rule.fakePlayerSuffixCheck.PlayerCommandMixin"
