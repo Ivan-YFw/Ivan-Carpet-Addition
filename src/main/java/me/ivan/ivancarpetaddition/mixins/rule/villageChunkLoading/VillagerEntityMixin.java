@@ -22,7 +22,7 @@ public class VillagerEntityMixin {
             if (villager.getBrain().getOptionalMemory(MemoryModuleType.HOME).isPresent()) {
                 ServerWorld world = villager.getServer().getWorld(villager.dimension);
                 BlockPos pos = new BlockPos(villager.getPos());
-                System.out.println("loading chunk: " + new ChunkPos(pos).x + ", " + new ChunkPos(pos).z);
+//                System.out.println("loading chunk: " + new ChunkPos(pos).x + ", " + new ChunkPos(pos).z);
                 world.getChunkManager().addTicket(ChunkTicketTypeRegistry.VILLAGE, new ChunkPos(pos), 3, new ChunkPos(pos));
             }
         }
