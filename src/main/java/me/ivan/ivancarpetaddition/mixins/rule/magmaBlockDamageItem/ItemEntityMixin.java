@@ -1,5 +1,6 @@
 package me.ivan.ivancarpetaddition.mixins.rule.magmaBlockDamageItem;
 
+import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FenceGateBlock;
@@ -22,6 +23,7 @@ public class ItemEntityMixin {
     ItemEntity entity = (ItemEntity)(Object) this;
     @Inject(method = "tick", at = @At("HEAD"))
     private void tick(CallbackInfo ci) {
+        if (!IvanCarpetAdditionSettings.magmaBlockDamageItem) return;
         int i = MathHelper.floor(entity.x);
         int j = MathHelper.floor(entity.y - 0.20000000298023224D);
         int k = MathHelper.floor(entity.z);
